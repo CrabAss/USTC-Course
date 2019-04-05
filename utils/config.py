@@ -2,14 +2,12 @@
 import os.path
 
 HOST = 'https://raw.githubusercontent.com/'
-OWNER = 'USTC-Resource' #'USTC-Courses'  #'mbinary'#
+OWNER = 'USTC-Resource'  #'USTC-Courses'  #'mbinary'#
 REPO = 'USTC-Course'
 BRANCH = 'master'
-NAME = 'README.md' # index.html
+NAME = 'README.md'  # index.html
 
-
-PATH = os.path.join(HOST,OWNER,REPO,BRANCH)
-
+PATH = os.path.join(HOST, OWNER, REPO, BRANCH)
 
 WALKDIR = os.path.abspath('.')
 
@@ -17,30 +15,32 @@ TARDIR = 'docs'
 if not os.path.exists(TARDIR):
     TARDIR = 'docs'
 
-IGNORE = ['utils','docs','__pycache__','_config.yml']
+IGNORE = ['utils', 'docs', '__pycache__', '_config.yml']
 
-DOWNLOAD = 'http://downgit.zhoudaxiaa.com/#/home?url=https://github.com/'+OWNER+'/'+REPO+'/tree/'+BRANCH+'/'
+DOWNLOAD = 'http://downgit.zhoudaxiaa.com/#/home?url=https://github.com/' + OWNER + '/' + REPO + '/tree/' + BRANCH + '/'
 
 HTML = '''
-<!--
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title> 中国科学技术大学课程资源</title>
 </head>
--->
 # 中国科学技术大学课程资源
 
 <div>
   <h2>
-    <a href="../index.html">&nbsp;&nbsp;<i class="fa fa-level-up">back </i>&nbsp;&nbsp;</a>
+    <a href="../index.html">&nbsp;&nbsp;<i class="fas fa-backward"></i>&nbsp;</a>
     :/{cur}
   </h2>
 </div>
 
 ## 说明
-下面列表根据拼音排序，可点击链接下载二进制文件，或者打开文本文件。<a href="{DOWNLOAD}" style="color:red" target="_black">点击这里</a>**下载当前整个文件夹**(此功能由 [DownGit](http://downgit.zhoudaxiaa.com) 提供）。此页面[mbinary](https://mbinary.xyz) 制作
+- 列表根据拼音排序
+- 点击 Files 的链接下载二进制文件
+- 或者打开文本文件(markdown 文件经过渲染)
 
-## Directories
+<h2> Directories &nbsp; <a href="{DOWNLOAD}" style="color:red;text-decoration:underline;" target="_black"><i class="fas fa-download"></i></a></h2>
+
 <ul>{dirLst}</ul>
 
 ## Files
@@ -48,8 +48,8 @@ HTML = '''
 
 ---
 <div style="text-decration:underline;display:inline">
-  <a href="https://github.com/USTC-Resource/USTC-Course.git" target="_blank" rel="external"><i class="fa fa-github"></i>&nbsp; GitHub</a>
-  <a href="mailto:&#122;huheqin1@gmail?subject=反馈与建议" style="float:right" target="_blank" rel="external"><i class="fa fa-envelope"></i>&nbsp; Feedback</a>
+  <a href="https://github.com/USTC-Resource/USTC-Course.git" target="_blank" rel="external"><i class="fab fa-github"></i>&nbsp; GitHub</a>
+  <a href="mailto:&#122;huheqin1@gmail.com?subject=反馈与建议" style="float:right" target="_blank" rel="external"><i class="fas fa-envelope"></i>&nbsp; Feedback</a>
 </div>
 ---
 
@@ -58,7 +58,7 @@ HTML = '''
 
 #* 非zip, 非以'.'开头的文件多于 3 个的目录下都有个 zip 文件：`-DIRECTORY 目录下的\d+个文件.zip`,包含当前目录下的一些文件, 这样方便大家一键下载. (在 git commit前, 运行 `./before__commit.sh`可以自动生成)
 
-README=r'''
+README = r'''
 # 中国科学技术大学课程资源
 [![Stars](https://img.shields.io/github/stars/USTC-Resource/USTC-Course.svg?label=Stars&style=social)](https://github.com/USTC-Resource/USTC-Course/stargazers)
 [![Forks](https://img.shields.io/github/forks/USTC-Resource/USTC-Course.svg?label=Forks&style=social)](https://github.com/USTC-Resource/USTC-Course/network/members)
@@ -193,4 +193,3 @@ git merge upstream/master
 -->
 
 '''
-
